@@ -10,7 +10,52 @@ title: Rosack Software Solutions
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
   </head>
-  <body>
-    {{ content | safe }}
+  <body x-data="{ burgerOpen: false }">
+    <div class="w-screen flex border-b-2 border-gray-300" style="height: 100px;">
+      <a href="/"><img src="/assets/img/rss.svg" style="height: 100px;width:250px;" /></a>
+      <div class="flex-1">
+        <object type="image/svg+xml" data="/assets/img/bg.svg" style="position:absolute;left:0;top:0;width:100%;padding-left:250px;height:100px;z-index:-1;overflow-x:hidden;"></object>
+        <div class="flex flex-grow items-center w-auto justify-end" style="height:90px;">
+          <div class="text-2xl hidden md:block text-white" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            <a href="/portfolio" class="inline-block hover:text-teal-200 mr-6">
+              Portfolio
+            </a>
+            <a href="/blog" class="inline-block hover:text-teal-200 mr-6">
+              Blog
+            </a>
+            <a href="/about" class="inline-block hover:text-teal-200 mr-12">
+              About Mike
+            </a>
+          </div>
+          <div class="block md:hidden justify-end">
+            <button class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-black hover:border-black mr-6" @click="burgerOpen = !burgerOpen">
+              <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-lg md:hidden bg-gray-300 pl-8 pt-2 pb-2"
+      x-show="burgerOpen"
+      x-transition:enter="transition ease-out duration-500 origin-top"
+      x-transition:enter-start="opacity-0 transform scale-y-0"
+      x-transition:enter-end="opacity-100 transform scale-100"
+      x-transition:leave="transition ease-in duration-500 origin-top"
+      x-transition:leave-start="opacity-100 transform scale-y-100"
+      x-transition:leave-end="opacity-0 transform scale-y-0">
+      <a href="/portfolio" class="block hover:text-teal-500">
+        Portfolio
+      </a>
+      <a href="/blog" class="block hover:text-teal-600 pt-4">
+        Blog
+      </a>
+      <a href="/about" class="block hover:text-teal-600 pt-4">
+        About Mike
+      </a>
+    </div>
+    <div class="container mx-auto pt-3">
+      {{ content | safe }}
+    </div>
+    <script src="/assets/js/site.js"></script>
   </body>
 </html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no"?>
+<!-- Generator: SVG Circus (http://svgcircus.com) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="rss-bg" version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 5000 100" preserveAspectRatio="xMinYMid slice">
+  <polygon id="pg1" points="25,100 50,0 5000,0 5000,100" opacity="0" fill="rgba(191,238,255,1)" fill-opacity="1"></polygon>
+  <polygon id="pg2" points="50,100 75,0 5000,0 5000,100" opacity="0" fill="rgba(109,222,252,1)" fill-opacity="1"></polygon>
+  <polygon id="pg3" points="75,100 100,0 5000,0 5000,100" opacity="0" fill="#1aadff" fill-opacity="1"></polygon>
+  <script type="text/ecmascript"><![CDATA[(function(){
+    const _reqAnimFrame=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.oRequestAnimationFrame;
+    const svg = document.getElementById("rss-bg");
+    const pgs = [];
+    const timePerPg = 666;
+    const numPgs = 3;
+
+    for (let i = 1; i <= numPgs; i++) {
+      pgs.push(svg.getElementById("pg" + i));
+    }
+
+    const fnTick = function(t) {
+      for (let i = 0; i < numPgs; i++) {
+        const startTime = i * timePerPg;
+        const endTime = startTime + timePerPg;
+
+        if (t > startTime) {
+          pgs[i].setAttribute("opacity", Math.min((t - startTime) / 1000, 1));
+        }
+      }
+        
+      if (t < timePerPg * pgs.length) {
+        _reqAnimFrame(fnTick);
+      }
+    };
+
+    _reqAnimFrame(fnTick);
+  })()]]></script>
+</svg>
