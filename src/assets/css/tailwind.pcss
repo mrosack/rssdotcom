@@ -6,12 +6,95 @@
 
 body {
   font-face: 'Roboto';
+  font-size: 18px;
 }
 
-h1 {
-  @apply text-5xl;
+h1, h2 {
   color: #1aadff;
   font-face: 'Poppins';
   font-weight: bold;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+section {
+  @apply block;
+  width: 100%;
+  @apply p-5;
+}
+
+content {
+  @apply block;
+  @apply mx-auto;
+  @screen sm {
+    max-width: theme('screens.sm');
+  }
+  @screen md {
+    max-width: theme('screens.md');
+  }
+  @screen lg {
+    max-width: theme('screens.lg');
+  }
+  @screen xl {
+    max-width: theme('screens.xl');
+  }
+}
+
+split {
+  @apply block;
+
+  @screen md {
+    @apply pt-5;
+    @apply flex;
+  }
+}
+
+split section {
+  @apply pt-5;
+
+  @screen md {
+    @apply pt-0;
+    @apply flex-1;
+  }
+
+  @apply pr-0;
+  @apply pl-0;
+}
+
+@screen md {
+  split section:not(:first-of-type) {
+    @apply pl-5;
+  }
+
+  split section:not(:last-of-type) {
+    @apply pr-5;
+  }
+}
+
+.bg-blue1, .bg-blue1:before {
+  background-color: #e5f6ff;
+}
+
+.bg-blue2 {
+  background-color: #b3e4ff;
+}
+
+.bg-blue3 {
+  background-color: #80d2ff;
+}
+
+.bg-blue4 {
+  background-color: #4dc1ff;
+}
+
+.bg-blue5 {
+  background-color: #1aadff;
 }
