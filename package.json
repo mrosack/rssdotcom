@@ -8,10 +8,10 @@
     "bundle:eleventy": "eleventy --serve --quiet",
     "bundle:tailwind": "parcel src/assets/css/* --out-dir dist/assets/css",
     "bundle:js": "parcel src/assets/js/* --out-dir dist/assets/js",
-    "build": "npm-run-all --parallel prod:*",
-    "prod:eleventy": "eleventy",
-    "prod:tailwind": "parcel build src/assets/css/* --out-dir dist/assets/css",
-    "prod:js": "parcel build src/assets/js/* --out-dir dist/assets/js"
+    "build": "npm-run-all --parallel prod:a-* --parallel prod:b-*",
+    "prod:a-eleventy": "eleventy",
+    "prod:a-js": "parcel build src/assets/js/* --out-dir dist/assets/js",
+    "prod:b-tailwind": "parcel build src/assets/css/* --out-dir dist/assets/css"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './dist/**/*.html'
+  ],
   theme: {
     extend: {},
   },
